@@ -5,12 +5,22 @@ import 'uikit/dist/js/uikit.min.js';
 class UKAlert extends React.Component {
     render() {
         return (
-            <div data-uk-alert>
+            <div data-uk-alert={
+                'animation:' + this.props.animation + ',' +
+                'duration:' + this.props.duration + ',' +
+                'sel-close:' + this.props.selClose + ','
+            }>
                 <a className="uk-alert-close" data-uk-close></a>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {this.props.children}
             </div>
         );
     }
+}
+
+UKAlert.defaultProps = {
+    animation: 'true',
+    duration: '150',
+    selClose: 'uk-alert-close',
 }
 
 export default UKAlert;
